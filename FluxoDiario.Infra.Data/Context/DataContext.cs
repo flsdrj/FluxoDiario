@@ -20,9 +20,11 @@ namespace FluxoDiario.Infra.Data.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {          
             modelBuilder.ApplyConfiguration(new LancamentoMapping());
+            modelBuilder.ApplyConfiguration(new SaldoMapping());
         }
 
         public DbSet<Lancamento> Lancamento { get; set; }
 
+        public DbSet<Saldo> Saldo { get; set; }
     }
 }

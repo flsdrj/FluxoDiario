@@ -25,6 +25,8 @@ builder.Services.AddDbContext<DataContext>
 builder.Services.AddTransient<ILancamentoService, LancamentoService>();
 builder.Services.AddTransient<ILancamentoRepository, LancamentoRepository>();
 
+builder.Services.AddTransient<ISaldoRepository, SaldoRepository>();
+
 var app = builder.Build();
 
 
