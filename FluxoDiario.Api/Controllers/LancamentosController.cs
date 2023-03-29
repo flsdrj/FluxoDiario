@@ -20,14 +20,14 @@ namespace FluxoDiario.Api.Controllers
         }
 
         [HttpGet("GetAll")]       
-        [ProducesResponseType(200, Type = typeof(List<Lancamento>))]
+        [ProducesResponseType(200, Type = typeof(List<LancamentoResponseModel>))]
         public IActionResult GetAll()
         {
             return Ok(_lancamentoService.GetAll());
         }
 
         [HttpGet("GetById/{id}")]
-        [ProducesResponseType(200, Type = typeof(Lancamento))]
+        [ProducesResponseType(200, Type = typeof(LancamentoResponseModel))]
         public IActionResult GetByID(int id)
         {
             return Ok(_lancamentoService.GetById(id));
@@ -39,15 +39,30 @@ namespace FluxoDiario.Api.Controllers
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            return Ok(_lancamentoService.Credito(model));
+            _lancamentoService.Credito(model);
+
+            return Ok("Credito Registrado");
         }
+
         [HttpPost("Debito")]
         public IActionResult Debito(LancamentoModel model)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            return Ok(_lancamentoService.Debito(model));
+            _lancamentoService.Debito(model);
+
+            return Ok("Debito Registrado");
+        }
+
+        [HttpDelete("Delete/{id}")]        
+        public IActionResult Delete(int id)
+        {
+            if (_lancamentoService.Delete(id))
+                return Ok("Deleção ok");
+
+            return BadRequest("Objeto inexistente");
+
         }
     } 
 }

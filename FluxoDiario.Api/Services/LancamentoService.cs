@@ -13,15 +13,25 @@ namespace FluxoDiario.Api.Services
     {
         private readonly ILancamentoRepository lancamentoRepository;
         private readonly ILogger<LancamentoService> _logger;
-        public LancamentoService(ILancamentoRepository lancamentoRepository = null, ILogger<LancamentoService> logger = null)
+        public LancamentoService(ILancamentoRepository lancamentoRepository, ILogger<LancamentoService> logger)
         {
             this.lancamentoRepository = lancamentoRepository;
             _logger = logger;
         }
 
-        public Lancamento GetById(int id)
+        public LancamentoResponseModel GetById(int id)
         {
-            return lancamentoRepository.ObterPorId(id);
+            var result = lancamentoRepository.ObterPorId(id);
+
+            return new LancamentoResponseModel()
+            {
+                Id = result.Id,
+                Descricao = result.Descricao,
+                Data = result.Data,
+                Tipo = (!result.Tipo ? TipoLancamento.Debito : TipoLancamento.Credito).GetDisplayName(),
+                Valor = result.Valor
+            };
+
         }
 
         public List<LancamentoResponseModel> GetAll()
@@ -32,7 +42,7 @@ namespace FluxoDiario.Api.Services
                 var result = new List<LancamentoResponseModel>();
 
                 foreach (var item in consulta)
-                {   
+                {
                     result.Add(new LancamentoResponseModel()
                     {
                         Id = item.Id,
@@ -73,9 +83,9 @@ namespace FluxoDiario.Api.Services
             catch (Exception e)
             {
                 return false;
-               
+
             }
-            
+
         }
 
         public bool Debito(LancamentoModel model)
@@ -98,6 +108,19 @@ namespace FluxoDiario.Api.Services
                 return false;
 
             }
+        }
+
+        public bool Delete(int id)
+        {
+            var result = lancamentoRepository.ObterPorId(id);
+
+            if (result != null)
+            {
+                lancamentoRepository.Excluir(result);
+                return true;
+            }
+
+            return false;
         }
     }
 }

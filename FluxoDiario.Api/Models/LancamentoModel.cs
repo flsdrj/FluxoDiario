@@ -9,6 +9,7 @@ namespace FluxoDiario.Api.Models
         [Required(ErrorMessage = "Informe a descrição.")]
         public string Descricao { get; set; }
 
+        [Range(double.Epsilon, double.PositiveInfinity, ErrorMessage = "Informe Valores maiores que 0"), ]
         [Required(ErrorMessage = "Informe o valor.")]
         public decimal  Valor { get; set; }
         

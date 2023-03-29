@@ -6,9 +6,10 @@ namespace FluxoDiario.Api.Contracts
     public interface ILancamentoService
     {
         List<LancamentoResponseModel> GetAll();
-        Lancamento GetById(int id);
+        LancamentoResponseModel GetById(int id);
         bool Credito(LancamentoModel model);
         bool Debito(LancamentoModel model);
+        bool Delete(int id);
 
     }
 }
