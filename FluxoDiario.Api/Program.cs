@@ -1,4 +1,5 @@
 using FluxoDiario.Api.Contracts;
+using FluxoDiario.Api.Extended;
 using FluxoDiario.Api.Services;
 using FluxoDiario.Infra.Data.Context;
 using FluxoDiario.Infra.Data.Contracts;
@@ -22,7 +23,7 @@ var conectionString = builder.Configuration.GetConnectionString("Projeto");
 builder.Services.AddDbContext<DataContext>
     (options => options.UseSqlServer(conectionString));
 
-//injeção de dependencia
+//injeï¿½ï¿½o de dependencia
 builder.Services.AddTransient<ILancamentoService, LancamentoService>();
 builder.Services.AddTransient<ILancamentoRepository, LancamentoRepository>();
 builder.Services.AddTransient<IRelatorioService, RelatorioService>();
@@ -30,14 +31,16 @@ builder.Services.AddTransient<IRelatorioService, RelatorioService>();
 
 var app = builder.Build();
 
+app.IniciarDatabase();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
 
 }
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
