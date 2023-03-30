@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluxoDiario.Api", "FluxoDia
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluxoDiario.Infra.Data", "FluxoDiario.Infra.Data\FluxoDiario.Infra.Data.csproj", "{B3D1EBD9-AE50-4E08-9899-02C21D98E356}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{3EBA7DDC-AF5E-49AD-99FA-8F884A98013A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{B3D1EBD9-AE50-4E08-9899-02C21D98E356}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3D1EBD9-AE50-4E08-9899-02C21D98E356}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3D1EBD9-AE50-4E08-9899-02C21D98E356}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EBA7DDC-AF5E-49AD-99FA-8F884A98013A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EBA7DDC-AF5E-49AD-99FA-8F884A98013A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EBA7DDC-AF5E-49AD-99FA-8F884A98013A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EBA7DDC-AF5E-49AD-99FA-8F884A98013A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

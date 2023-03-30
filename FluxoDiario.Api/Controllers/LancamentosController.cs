@@ -19,10 +19,12 @@ namespace FluxoDiario.Api.Controllers
             _lancamentoService = lancamentoService;
         }
 
-        [HttpGet("GetAll")]       
+        [HttpGet("GetAll")]
         [ProducesResponseType(200, Type = typeof(List<LancamentoResponseModel>))]
         public IActionResult GetAll()
         {
+            _logger.LogInformation("GetAll - iniciado");
+
             return Ok(_lancamentoService.GetAll());
         }
 
@@ -30,16 +32,21 @@ namespace FluxoDiario.Api.Controllers
         [ProducesResponseType(200, Type = typeof(LancamentoResponseModel))]
         public IActionResult GetByID(int id)
         {
+            _logger.LogInformation("GetByID - iniciado");
+
             return Ok(_lancamentoService.GetById(id));
         }
 
-        [HttpPost("Credito")]       
+        [HttpPost("Credito")]
         public IActionResult Credito(LancamentoModel model)
         {
+            _logger.LogInformation("Credito - iniciado");
+
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            _lancamentoService.Credito(model);
+            if (!_lancamentoService.Credito(model))
+                return BadRequest();
 
             return Ok("Credito Registrado");
         }
@@ -47,22 +54,28 @@ namespace FluxoDiario.Api.Controllers
         [HttpPost("Debito")]
         public IActionResult Debito(LancamentoModel model)
         {
+            _logger.LogInformation("Debito - iniciado");
+
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            _lancamentoService.Debito(model);
+            if (!_lancamentoService.Debito(model))
+                return BadRequest();
 
             return Ok("Debito Registrado");
         }
 
-        [HttpDelete("Delete/{id}")]        
+        [HttpDelete("Delete/{id}")]
         public IActionResult Delete(int id)
         {
-            if (_lancamentoService.Delete(id))
-                return Ok("Deleção ok");
+            _logger.LogInformation("Delete - iniciado");
 
-            return BadRequest("Objeto inexistente");
+            if (!_lancamentoService.Delete(id))
+            {
+                return BadRequest("Objeto inexistente");
+            }
 
+            return Ok("Deleção ok");
         }
-    } 
+    }
 }

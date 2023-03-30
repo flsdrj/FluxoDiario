@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,7 @@ namespace FluxoDiario.Infra.Data.Mappings
 
             builder.Property(t => t.Valor)
                 .HasColumnName("Valor")
+                .HasColumnType("money")
                 .IsRequired();
 
             builder.Property(t => t.Tipo)

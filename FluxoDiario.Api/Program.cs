@@ -3,6 +3,7 @@ using FluxoDiario.Api.Services;
 using FluxoDiario.Infra.Data.Context;
 using FluxoDiario.Infra.Data.Contracts;
 using FluxoDiario.Infra.Data.Repositories;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -24,8 +25,8 @@ builder.Services.AddDbContext<DataContext>
 //injeção de dependencia
 builder.Services.AddTransient<ILancamentoService, LancamentoService>();
 builder.Services.AddTransient<ILancamentoRepository, LancamentoRepository>();
+builder.Services.AddTransient<IRelatorioService, RelatorioService>();
 
-builder.Services.AddTransient<ISaldoRepository, SaldoRepository>();
 
 var app = builder.Build();
 
@@ -35,6 +36,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+
 }
 
 app.UseHttpsRedirection();

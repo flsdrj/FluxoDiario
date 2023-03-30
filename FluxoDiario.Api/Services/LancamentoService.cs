@@ -11,17 +11,17 @@ namespace FluxoDiario.Api.Services
 {
     public class LancamentoService : ILancamentoService
     {
-        private readonly ILancamentoRepository lancamentoRepository;
+        private readonly ILancamentoRepository _lancamentoRepository;
         private readonly ILogger<LancamentoService> _logger;
         public LancamentoService(ILancamentoRepository lancamentoRepository, ILogger<LancamentoService> logger)
         {
-            this.lancamentoRepository = lancamentoRepository;
+            _lancamentoRepository = lancamentoRepository;
             _logger = logger;
         }
 
         public LancamentoResponseModel GetById(int id)
         {
-            var result = lancamentoRepository.ObterPorId(id);
+            var result = _lancamentoRepository.ObterPorId(id);
 
             return new LancamentoResponseModel()
             {
@@ -38,7 +38,7 @@ namespace FluxoDiario.Api.Services
         {
             try
             {
-                var consulta = lancamentoRepository.Consultar();
+                var consulta = _lancamentoRepository.Consultar();
                 var result = new List<LancamentoResponseModel>();
 
                 foreach (var item in consulta)
@@ -77,10 +77,10 @@ namespace FluxoDiario.Api.Services
                     Valor = model.Valor
                 };
 
-                lancamentoRepository.Inserir(lancamento);
+                _lancamentoRepository.Inserir(lancamento);
                 return true;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
 
@@ -100,10 +100,10 @@ namespace FluxoDiario.Api.Services
                     Valor = model.Valor
                 };
 
-                lancamentoRepository.Inserir(lancamento);
+                _lancamentoRepository.Inserir(lancamento);
                 return true;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
 
@@ -112,11 +112,11 @@ namespace FluxoDiario.Api.Services
 
         public bool Delete(int id)
         {
-            var result = lancamentoRepository.ObterPorId(id);
+            var result = _lancamentoRepository.ObterPorId(id);
 
             if (result != null)
             {
-                lancamentoRepository.Excluir(result);
+                _lancamentoRepository.Excluir(result);
                 return true;
             }
 
