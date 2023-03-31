@@ -15,12 +15,14 @@ services:
       - ConnectionStrings__Projeto=Server=db;Database=fluxoCaixaDb;User Id=sa;Password=Admin@123;TrustServerCertificate=true;
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:80
+      - TZ=America/Sao_Paulo
   db:
     image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
       - MSSQL_SA_PASSWORD=Admin@123
       - MSSQL_PID=Express
       - ACCEPT_EULA=Y
+      - TZ=America/Sao_Paulo
     ports:
       - 1433:1433
     volumes:
