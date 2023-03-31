@@ -16,6 +16,6 @@ O Propósito da aplicação é possiblitar uma aplicação frotnt-end a ter aces
  
  4 - Digitar o comando "docker compose up -d";
  
- 5 - Aguardar a aplicação subir, e em seguida acesse através do link "https:localhost\10000\swagger.index.html";
+ 5 - Aguardar a aplicação subir, e em seguida acesse através do link "https://localhost\10000\swagger.index.html";
  
  6 - Para parar de rodar a aplicação, no Terminal aberto na pasta do projeto, digitar o comando "docker compose down";
