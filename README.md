@@ -1,4 +1,4 @@
-# FluxoDiario
+# Fluxo Diário
 
 Serviço de Aplicação Web escrita em .Net 6.0.
 Utilizando contenerização Docker.
