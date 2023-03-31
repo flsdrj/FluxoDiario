@@ -8,9 +8,14 @@ O Propósito da aplicação é possiblitar uma aplicação frotnt-end a ter aces
 
 ## Para testá-la localmente, através do swagger:
 
-### 1 - Necessita ter o Docker Desktop instalado, caso necessitar baixar, segue o link: "https://www.docker.com/products/docker-desktop";
-### 2 - Efetuar o clone do projeto;
-### 3 - Abrir o Terminal dentro da pasta onde o projeto foi clonado;
-### 4 - Digitar o comando "docker compose up -d";
-### 5 - Aguardar a aplicação subir, e em seguida acesse através do link "https:localhost\10000\swagger.index.html";
-### 6 - Para parar de rodar a aplicação, no Terminal aberto na pasta do projeto, digitar o comando "docker compose down";
+ 1 - Necessita ter o Docker Desktop instalado, caso necessitar baixar, segue o link: "https://www.docker.com/products/docker-desktop";
+ 
+ 2 - Efetuar o clone do projeto;
+ 
+ 3 - Abrir o Terminal dentro da pasta onde o projeto foi clonado;
+ 
+ 4 - Digitar o comando "docker compose up -d";
+ 
+ 5 - Aguardar a aplicação subir, e em seguida acesse através do link "https:localhost\10000\swagger.index.html";
+ 
+ 6 - Para parar de rodar a aplicação, no Terminal aberto na pasta do projeto, digitar o comando "docker compose down";
