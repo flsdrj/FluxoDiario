@@ -4,7 +4,7 @@ Serviço de Aplicação Web escrita em .Net 6.0.
 Utilizando contenerização Docker.
 Com uma instância do SQl Server acoplada no container.
 
-O Propósito da aplicação é possiblitar uma aplicação frotnt-end a ter acesso a serviços através de endpoints para controle diário de fluxo de caixa registrando seus Creditos e Débitos com a possibilidade de visualizar o relatório diário de saldo.
+O Propósito da aplicação é possiblitar uma aplicação frotnt-end a ter acesso a serviços através de endpoints para controle diário de fluxo de caixa registrando seus créditos e débitos com a possibilidade de visualizar o relatório diário de saldo.
 
 ## Para testá-la localmente, através do swagger:
 
