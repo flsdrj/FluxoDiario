@@ -19,4 +19,3 @@ O Propósito da aplicação é possiblitar uma aplicação frotnt-end a ter aces
  5 - Aguardar a aplicação subir, e em seguida acesse através do link "http://localhost:10000/swagger/index.html";
  
  6 - Para parar de rodar a aplicação, no Terminal aberto na pasta do projeto, digitar o comando "docker compose down";
- teste
